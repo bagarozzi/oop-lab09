@@ -12,8 +12,6 @@ public class DrawNumberConsoleView implements DrawNumberView {
     private static final String GO = "Go";
     private static final String NEW_GAME = ": a new game starts!";
 
-    private DrawNumberController controller;
-
     /**
      * Sets the controller controlled by this view (if works as input).
      *

@@ -2,12 +2,18 @@ package it.unibo.mvc.controller;
 
 import it.unibo.mvc.api.DrawNumberController;
 import it.unibo.mvc.api.DrawNumberView;
+import it.unibo.mvc.api.DrawNumber;
 
 import java.util.Collection;
 
 public class DrawNumberControllerMultipleViews implements DrawNumberController {
 
-    Collection<DrawNumberView> views; /* Views collection, so the controller knows how many view it has to control */
+    private Collection<DrawNumberView> views; /* Views collection, so the controller knows how many view it has to control */
+    private final DrawNumber model;
+
+    public DrawNumberControllerMultipleViews(final DrawNumber model){
+        this.model = model;
+    }
 
     /**
      * Makes a guess.
