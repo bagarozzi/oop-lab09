@@ -5,12 +5,8 @@ import it.unibo.mvc.api.DrawNumberView;
 import it.unibo.mvc.api.DrawResult;
 
 public class DrawNumberConsoleView implements DrawNumberView {
-    
-    private static final String FRAME_NAME = "Draw Number App";
-    private static final String QUIT = "Quit";
-    private static final String RESET = "Reset";
-    private static final String GO = "Go";
-    private static final String NEW_GAME = ": a new game starts!";
+
+    private DrawNumberController controller;
 
     /**
      * Sets the controller controlled by this view (if works as input).
@@ -18,14 +14,14 @@ public class DrawNumberConsoleView implements DrawNumberView {
      * @param observer the controller to attach
      */
     public void setController(DrawNumberController observer){
-
+        this.controller = observer;
     }
 
     /**
      * This method is called before the UI is used. It should finalize its status (if needed).
      */
     public void start(){
-
+        System.out.println("Console view started");
     }
 
     /**
@@ -34,6 +30,15 @@ public class DrawNumberConsoleView implements DrawNumberView {
      * @param res the result of the last draw
      */
     public void result(DrawResult res){
-
+        switch (res) {
+            case YOURS_HIGH, YOURS_LOW -> {
+                System.out.println(res.getDescription());
+                return;
+            }
+            case YOU_WON -> System.out.println(res.getDescription());
+            case YOU_LOST -> System.out.println(res.getDescription());
+            default -> throw new IllegalStateException("Unknown game state");
+        }
+        controller.resetGame();
     }
 }
