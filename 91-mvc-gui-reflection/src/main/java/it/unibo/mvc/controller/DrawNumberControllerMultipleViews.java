@@ -6,6 +6,7 @@ import it.unibo.mvc.api.DrawNumber;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class DrawNumberControllerMultipleViews implements DrawNumberController {
 
@@ -23,21 +24,23 @@ public class DrawNumberControllerMultipleViews implements DrawNumberController {
      * @param n the attempt
      */
     public void newAttempt(int n){
-
+        for(DrawNumberView view : views){
+            Objects.requireNonNull(view, "There is no view attached!").result(model.attempt(n));
+        }
     }
 
     /**
      * Resets the current game (if any is running) and starts a new one.
      */
     public void resetGame(){
-
+        this.model.reset();
     }
 
     /**
      * Gracefully quits from the application.
      */
     public void quit(){
-
+        System.exit(0);
     }
 
     /**
@@ -46,6 +49,9 @@ public class DrawNumberControllerMultipleViews implements DrawNumberController {
      * @param newView the view to be added
      */
     public void addView(DrawNumberView newView){
+        Objects.requireNonNull(newView, "Cannot add a null view");
         views.add(newView);
+        newView.setController(this);
+        newView.start();
     }
 }
