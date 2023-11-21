@@ -5,7 +5,16 @@ import it.unibo.mvc.api.DrawNumberView;
 import it.unibo.mvc.api.DrawResult;
 
 public class DrawNumberConsoleView implements DrawNumberView {
-            /**
+    
+    private static final String FRAME_NAME = "Draw Number App";
+    private static final String QUIT = "Quit";
+    private static final String RESET = "Reset";
+    private static final String GO = "Go";
+    private static final String NEW_GAME = ": a new game starts!";
+
+    private DrawNumberController controller;
+
+    /**
      * Sets the controller controlled by this view (if works as input).
      *
      * @param observer the controller to attach
@@ -18,7 +27,7 @@ public class DrawNumberConsoleView implements DrawNumberView {
      * This method is called before the UI is used. It should finalize its status (if needed).
      */
     public void start(){
-        
+
     }
 
     /**
