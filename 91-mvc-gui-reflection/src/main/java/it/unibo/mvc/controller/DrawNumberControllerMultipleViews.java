@@ -5,6 +5,7 @@ import it.unibo.mvc.api.DrawNumberView;
 import it.unibo.mvc.api.DrawNumber;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class DrawNumberControllerMultipleViews implements DrawNumberController {
 
@@ -13,6 +14,7 @@ public class DrawNumberControllerMultipleViews implements DrawNumberController {
 
     public DrawNumberControllerMultipleViews(final DrawNumber model){
         this.model = model;
+        views = new LinkedList<DrawNumberView>();
     }
 
     /**
@@ -44,6 +46,6 @@ public class DrawNumberControllerMultipleViews implements DrawNumberController {
      * @param newView the view to be added
      */
     public void addView(DrawNumberView newView){
-
+        views.add(newView);
     }
 }
