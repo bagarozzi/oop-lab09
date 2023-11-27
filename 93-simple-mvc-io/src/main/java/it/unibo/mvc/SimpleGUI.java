@@ -32,6 +32,7 @@ public final class SimpleGUI {
         canvas.setLayout(new BorderLayout());
         canvas.add(textArea, BorderLayout.CENTER);
         canvas.add(save, BorderLayout.SOUTH);
+        frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         save.addActionListener(new ActionListener(){
@@ -53,5 +54,10 @@ public final class SimpleGUI {
 
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
+    }
+
+    public static void main(String[] args){
+        SimpleGUI sg = new SimpleGUI(new Controller());
+        sg.display();
     }
 }
