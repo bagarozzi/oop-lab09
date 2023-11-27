@@ -34,17 +34,22 @@ public final class SimpleGUI {
         canvas.setLayout(new BorderLayout());
         canvas.add(jtf, BorderLayout.NORTH);
         canvas.add(textArea, BorderLayout.CENTER);
+        canvas.add(lowerButtons, BorderLayout.SOUTH);
         lowerButtons.setLayout(new BorderLayout());
         lowerButtons.add(print, BorderLayout.LINE_END);
         lowerButtons.add(showHistory, BorderLayout.LINE_START);
-        canvas.add(lowerButtons, BorderLayout.SOUTH);
 
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         print.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-
+                try{
+                    controller.setNextString(textArea.getText());
+                } catch(Exception e1){
+                    System.out.println("A null string has been passed");
+                }
+                controller.print();
             }
         });
     }

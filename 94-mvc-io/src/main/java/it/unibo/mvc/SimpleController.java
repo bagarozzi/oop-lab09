@@ -28,6 +28,7 @@ public final class SimpleController implements Controller {
         if(nextString == null){
             throw new NullPointerException();
         }
+        this.nextString = nextString;
     }
 
     public String getNextString(){
@@ -39,8 +40,8 @@ public final class SimpleController implements Controller {
     }
 
     public void print(){
+        currentString = nextString;
         System.out.println(currentString);
         printHistory.add(currentString);
-        currentString = nextString;
     }
 }
