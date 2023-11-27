@@ -42,12 +42,14 @@ public class BadIOGUI {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
         final JButton write = new JButton("Write on file");
+        final JButton read = new JButton("Read from file");
         //canvas.add(write, BorderLayout.CENTER);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         final JPanel firstPanel = new JPanel();
         firstPanel.setLayout(new BoxLayout(firstPanel, BoxLayout.X_AXIS));
         firstPanel.add(write);
+        firstPanel.add(read);
         canvas.add(firstPanel, BorderLayout.CENTER);
         /*
          * Handlers
