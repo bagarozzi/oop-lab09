@@ -72,6 +72,13 @@ public class BadIOGUI {
                 }
             }
         });
+
+        read.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(final ActionEvent e){
+                System.out.println("Reading from file...");
+            }
+        });
     }
 
     private void display() {
