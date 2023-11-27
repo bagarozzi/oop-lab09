@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream;
  * Application controller. Performs the I/O.
  */
 public class Controller {
-    private File currentFile = new File(System.getProperty("user.home") + System.getProperty("file.separataor") + "output.txt");
+    private File currentFile = new File(System.getProperty("user.home") + System.getProperty("file.separator") + "output.txt");
 
     public Controller(){
 
@@ -33,7 +33,7 @@ public class Controller {
         if(currentFile == null || content == null){
             throw new IOException("No file has been set or the content passed is null");
         }
-        try(ObjectOutputStream os = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(currentFile)))){
+        try(ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(currentFile))){
             os.writeObject(content);
         }
         catch(Exception e){
