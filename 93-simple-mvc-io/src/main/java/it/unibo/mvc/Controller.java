@@ -1,7 +1,10 @@
 package it.unibo.mvc;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 
 /**
@@ -30,6 +33,11 @@ public class Controller {
         if(currentFile == null || content == null){
             throw new IOException("No file has been set or the content passed is null");
         }
-        
+        try(ObjectOutputStream os = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(currentFile)))){
+            os.writeObject(content);
+        }
+        catch(Exception e){
+            System.out.println("Something went wrong");
+        }
     }
 }
