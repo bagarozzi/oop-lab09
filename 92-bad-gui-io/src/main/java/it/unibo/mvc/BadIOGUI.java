@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Random;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 
 /**
@@ -80,9 +82,9 @@ public class BadIOGUI {
             @Override
             public void actionPerformed(final ActionEvent e){
                 System.out.println("Reading from file: ");
-                try(final InputStream is = new FileInputStream(PATH);
-                    DataInputStream dstream = new DataInputStream(is);
-                    ) {
+                try(DataInputStream dstream = new DataInputStream(
+                        new BufferedInputStream(
+                            new FileInputStream(PATH)));) {
                     System.out.println("The file's content is: " + dstream.readInt());
                 } catch(IOException e1){
                     JOptionPane.showMessageDialog(frame, e1, "Error", JOptionPane.ERROR_MESSAGE);
