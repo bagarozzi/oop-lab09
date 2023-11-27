@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Random;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.DataInputStream;
 
 /**
  * This class is a simple application that writes a random number on a file.
@@ -79,7 +80,9 @@ public class BadIOGUI {
             @Override
             public void actionPerformed(final ActionEvent e){
                 System.out.println("Reading from file: ");
-                try(InputStream is = new FileInputStream(PATH)){
+                try(final InputStream is = new FileInputStream(PATH);
+                    DataInputStream dstream = new DataInputStream(is);
+                    ) {
                     System.out.println("The file's conten is: " + is.read());
                 } catch(IOException e1){
                     JOptionPane.showMessageDialog(frame, e1, "Error", JOptionPane.ERROR_MESSAGE);
