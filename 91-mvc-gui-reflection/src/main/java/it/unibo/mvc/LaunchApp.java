@@ -3,6 +3,7 @@ package it.unibo.mvc;
 import it.unibo.mvc.api.DrawNumberController;
 import it.unibo.mvc.api.DrawNumberView;
 import it.unibo.mvc.controller.DrawNumberControllerImpl;
+import it.unibo.mvc.controller.DrawNumberControllerMultipleView;
 import it.unibo.mvc.model.DrawNumberImpl;
 
 import java.lang.reflect.InvocationTargetException;
@@ -34,7 +35,7 @@ public final class LaunchApp {
         InstantiationException,
         IllegalAccessException {
         final var model = new DrawNumberImpl();
-        final DrawNumberController app = new DrawNumberControllerImpl(model);
+        final DrawNumberController app = new DrawNumberControllerMultipleView(model);
         for (final var viewType: List.of("Console", "Swing")) {
             final var clazz = Class.forName("it.unibo.mvc.view.DrawNumber" + viewType + "View");
             for (int i = 0; i < 3; i++) {
