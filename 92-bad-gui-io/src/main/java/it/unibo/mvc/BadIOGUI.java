@@ -83,7 +83,7 @@ public class BadIOGUI {
                 try(final InputStream is = new FileInputStream(PATH);
                     DataInputStream dstream = new DataInputStream(is);
                     ) {
-                    System.out.println("The file's conten is: " + dstream.readInt());
+                    System.out.println("The file's content is: " + dstream.readInt());
                 } catch(IOException e1){
                     JOptionPane.showMessageDialog(frame, e1, "Error", JOptionPane.ERROR_MESSAGE);
                 }
