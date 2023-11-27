@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream;
  */
 public class Controller {
     private File currentFile = new File(System.getProperty("user.home") + System.getProperty("file.separator") + "output.txt");
-
+    
     public Controller(){
 
     }
