@@ -8,12 +8,12 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Objects;
 
-public class DrawNumberControllerMultipleViews implements DrawNumberController {
+public class DrawNumberControllerMultipleView implements DrawNumberController {
 
     private Collection<DrawNumberView> views; /* Views collection, so the controller knows how many view it has to control */
     private final DrawNumber model;
 
-    public DrawNumberControllerMultipleViews(final DrawNumber model){
+    public DrawNumberControllerMultipleView(final DrawNumber model){
         this.model = model;
         views = new LinkedList<DrawNumberView>();
     }
