@@ -30,5 +30,6 @@ public class Controller {
         if(currentFile == null || content == null){
             throw new IOException("No file has been set or the content passed is null");
         }
+        
     }
 }
